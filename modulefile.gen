@@ -1,0 +1,31 @@
+#%Module###<-magic cookie ####################################################
+##
+##   CMBXLSS -- CMB x LSS analysis environment
+##
+##
+# variables for Tcl script use only
+set     version  _CMBXLSSVERSION_
+
+module-whatis "Loads the CMBxLSS environment."
+
+proc ModulesHelp { } {
+  global version
+  puts stderr "\t\t CMBxLSS environment - Version $version\n"
+  puts stderr "\t This loads a conda environment and other compiled"
+  puts stderr "\t software needed CMBxLSS analysis at S3DF."
+  puts stderr ""
+}
+
+conflict cmbxlss
+
+# This is set by OS python and gives us problems.
+unsetenv PYTHONSTARTUP
+
+# This is the conda environment location
+prepend-path PATH _CONDADIR_/bin
+setenv PYTHONPATH _CONDADIR_/lib/python_PYVERSION_/site-packages
+setenv CMBXLSS _CONDADIR_
+setenv CMBXLSS_VERSION _CMBXLSSVERSION_
+
+# for basemap; see https://github.com/matplotlib/basemap/issues/419
+setenv PROJ_LIB _CONDADIR_/share/proj
