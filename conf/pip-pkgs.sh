@@ -11,11 +11,11 @@ PYVERSION=$(python -c "import sys; print(str(sys.version_info[0])+'.'+str(sys.ve
 dir=$CONDADIR/lib/python$PYVERSION/site-packages/tempura
 git clone git@github.com:simonsobs/tempura.git $dir
 cd $dir && python setup.py build_ext -i 
+cp -r pytempura ../
 
 dir=$CONDADIR/lib/python$PYVERSION/site-packages/falafel
 git clone git@github.com:simonsobs/falafel.git $dir
 cd $dir && cp input/config_template.yml input/config.yml && python setup.py develop
-cp -r pytempura ../
 
 dir=$CONDADIR/lib/python$PYVERSION/site-packages/enlib
 git clone https://github.com/amaurea/enlib $dir
