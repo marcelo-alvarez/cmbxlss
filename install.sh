@@ -32,7 +32,7 @@ export PATH=$CONDADIR/bin:$PATH
 source $CONFIGUREENV
 
 # Set installation directories
-CMBXLSS=$PREFIX/$CMBXLSSVERSION
+CMBXLSS=$PREFIX/$VERSION
 CONDABASEDIR=$CMBXLSS/conda
 CONDADIR=$CMBXLSS/conda/envs/cmbxlss
 MODULEDIR=$CMBXLSS/modulefiles/cmbxlss
@@ -70,12 +70,12 @@ mkdir -p $MODULEDIR
 cp $topdir/modulefile.gen cmbxlss.module
 
 sed -i 's@_CONDADIR_@'"$CONDADIR"'@g' cmbxlss.module
-sed -i 's@_CMBXLSSVERSION_@'"$CMBXLSSVERSION"'@g' cmbxlss.module
+sed -i 's@_VERSION_@'"$VERSION"'@g' cmbxlss.module
 sed -i 's@_PYVERSION_@'"$PYVERSION"'@g' cmbxlss.module
 sed -i 's@_CONDAPRGENV_@'"$CONDAPRGENV"'@g' cmbxlss.module
 
-cp cmbxlss.module $MODULEDIR/$CMBXLSSVERSION
-cp $topdir/cmbxlss.modversion $MODULEDIR/.version_$CMBXLSSVERSION
+cp cmbxlss.module $MODULEDIR/$VERSION
+cp $topdir/cmbxlss.modversion $MODULEDIR/.version_$VERSION
 
 chgrp -R $GRP $MODULEDIR
 chmod -R u=rwX,g=rX,o-rwx $MODULEDIR
