@@ -7,6 +7,20 @@ Introduction
 This package contains scripts for installing cmbxlss, an environment for
 running cmbxlss analysis at S3DF.
 
+Currently available packages
+------------
+ - healpy
+ - camb
+ - mpi4py
+ - pixell
+ - cobaya
+ - orphics
+ - pytempura
+ - falafel
+ - enlib
+ - solenspipe
+
+
 Quick start
 -----------
 
